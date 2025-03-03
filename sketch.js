@@ -596,9 +596,22 @@ function draw() {
 
   if (gameState === "start"){
 
+
     image(startImg, 0,0,width,height);
+  
+      if (mouseX >= startX && mouseX <= startX + startWidth &&
+      mouseY >= startY && mouseY <= startY + startHeight
+    ) {
+      cursor(HAND);
+    } else {
+      cursor(ARROW);
+    }
+
   }
   else if (gameState === "playing"){
+
+  cursor(ARROW);
+  
   background('#bdfaff');
 
 
@@ -638,6 +651,15 @@ function draw() {
 
   } else if (gameState === "gameOver"){
       image(endImg,0,0,width,height);
+
+      if (
+        mouseX >= endX && mouseX <= endX + endWidth &&
+        mouseY >= endY && mouseY <= endY + endHeight
+      ) {
+        cursor(HAND);
+      } else {
+        cursor(ARROW);
+      }
     }
 
 }
